@@ -13,9 +13,12 @@ response = requests.get(url, headers=headers, params=params)
 # Check if the request was successful
 if response.status_code == 200:
     data = response.json()
-    # Iterate through the posts
-    for post in data['data']['children']:
-        title = post['data']['title']
-        print(title)
+    # Open a file in write mode (this will create the file if it doesn't exist)
+    with open("top_posts.txt", "w", encoding="utf-8") as file:
+        # Iterate through the posts and write each title to the file
+        for post in data['data']['children']:
+            title = post['data']['title']
+            file.write(title + "\n")
+    print("Titles have been saved to top_posts.txt")
 else:
     print("Error:", response.status_code)
