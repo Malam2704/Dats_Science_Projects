@@ -1,9 +1,10 @@
-import CityBarChart from '@/components/CityBarChart'
+import CityChart from "./components/CityChart";
 
 export default function Page() {
   return (
-    <div className="p-4">
-      <CityBarChart />
+    <div>
+      <h1 style={{ textAlign: 'center' }}>City Mentions Chart</h1>
+      <CityChart />
     </div>
   )
 }
